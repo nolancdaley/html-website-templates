@@ -1,34 +1,44 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Test Pendo</title>
+  <title>Pendo Test Page</title>
 
+  <!-- Pendo Install Snippet -->
   <script>
-    (function(apiKey){
-      (function(p,e,n,d,o){
-        var v,w,x,y,z;
-        o=p[d]=p[d]||{};
-        o._q=[];
-        v=['initialize','identify','updateOptions','pageLoad','track'];
-        for(w=0,x=v.length;w<x;++w)(function(m){o[m]=o[m]||function(){
-          o._q[m==="initialize"? "unshift":"push"]([m].concat([].slice.call(arguments,0)));
-        };})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
-        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);
-      })(window,document,'script','pendo');
-    })('1cc88766-c269-4c89-894d-becc8edda723');
-    
+    (function(p,e,n,d){
+      var w=p[d]=p[d]||{};
+      w._q=[];
+      var v=['initialize','identify','updateOptions','pageLoad','track'];
+      for(var i=0;i<v.length;i++){
+        (function(m){
+          w[m]=w[m]||function(){
+            w._q.push([m].concat([].slice.call(arguments,0)));
+          };
+        })(v[i]);
+      }
+      var s=e.createElement(n);
+      s.async=true;
+      s.src='https://cdn.pendo.io/agent/static/1cc88766-c269-4c89-894d-becc8edda723/pendo.js';
+      var x=e.getElementsByTagName(n)[0];
+      x.parentNode.insertBefore(s,x);
+    })(window,document,'script','pendo');
+
+    // Queue the initialize call
     pendo.initialize({
       visitor: { id: 'VISITOR-123' },
       account: { id: 'ACCOUNT-456' }
     });
   </script>
+  <!-- End Pendo snippet -->
+
 </head>
 <body>
-  <h1>Hello Pendo</h1>
+  <h1>Hello Pendo!</h1>
+  <p>This is a test page for your Pendo snippet.</p>
 </body>
 </html>
+
 
 
 	<meta charset="UTF-8">
