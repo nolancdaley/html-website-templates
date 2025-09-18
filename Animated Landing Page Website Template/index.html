@@ -25,9 +25,40 @@
 
 	<!-- Fonts and Material Icons -->
 	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
- 
 </head>
 <body class="slides chain simplifiedMobile animated">
+
+  <!-- Page content goes here -->
+
+  <!-- Pendo Install Script (Asynchronous, at the end of body) -->
+  <script>
+    (function(p,e,n,d,o){
+      var v,w,x,y,z;
+      o=p[d]=p[d]||{};
+      o._q=[];
+      v=['initialize','identify','updateOptions','pageLoad','track'];
+      for(w=0;w<v.length;w++){(function(m){o[m]=o[m]||function(){o._q.push([m].concat([].slice.call(arguments,0)));};})(v[w])}
+      x=e.createElement(n);
+      x.async=!0;
+      x.src='https://cdn.pendo.io/agent/static/1cc88766-c269-4c89-894d-becc8edda723/pendo.js';
+      y=e.getElementsByTagName(n)[0];
+      y.parentNode.insertBefore(x,y);
+    })(window,document,'script','pendo');
+
+    // Example: initialize Pendo
+    pendo.initialize({
+      visitor: {
+        id: 'visitor_12345' // Replace with your visitor id
+      },
+      account: {
+        id: 'account_12345'
+      }
+    });
+  </script>
+
+</body>
+</html>
+
 		
 <!-- SVG Library -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
