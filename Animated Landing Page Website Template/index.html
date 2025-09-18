@@ -21,48 +21,30 @@
 </head>
 <body class="slides chain simplifiedMobile animated">
 
-  <!-- Your page content goes here -->
+ <script>
+  (function(p,e,n,d,o){
+    var v,w,x,y,z;
+    o=p[p.length]=p[p.length]||[];
+    v=function(){o.push(arguments)};
+    w=e.createElement(n);
+    w.async=!0;
+    w.src="https://cdn.pendo.io/agent/static/1cc88766-c269-4c89-894d-becc8edda723/pendo.js";
+    x=e.getElementsByTagName(n)[0];
+    x.parentNode.insertBefore(w,x);
+    pendo=v;
+  })(window,document,'script');
 
-  <!-- Pendo Install Script (Asynchronous) -->
-  <script>
-    (function(p,e,n,d){
-      // Set up the Pendo queue
-      p[d] = p[d] || {};
-      p[d]._q = [];
-      var methods = ['initialize','identify','updateOptions','pageLoad','track'];
-      for(var i=0;i<methods.length;i++){
-        (function(m){
-          p[d][m] = p[d][m] || function(){
-            p[d]._q.push([m].concat([].slice.call(arguments,0)));
-          };
-        })(methods[i]);
-      }
-
-      // Create the Pendo script tag
-      var s = e.createElement(n);
-      s.async = true;
-      s.src = 'https://cdn.pendo.io/agent/static/1cc88766-c269-4c89-894d-becc8edda723/pendo.js';
-      var firstScript = e.getElementsByTagName(n)[0];
-      firstScript.parentNode.insertBefore(s, firstScript);
-
-      // Initialize Pendo after the script loads
-      s.onload = function(){
-        console.log('Pendo script loaded!');
-        pendo.initialize({
-          visitor: {
-            id: '12345',
-            email: 'nolan.daley@example.com',
-            full_name: 'Nolan Daley'
-          },
-          account: {
-            id: '67890',
-            name: 'Example Corp'
-          }
-        });
-        console.log('Pendo initialized', pendo);
-      };
-    })(window, document, 'script', 'pendo');
-  </script>
+  // Optional: Identify visitor and account
+  pendo.initialize({
+    visitor: {
+      id: 'NolanTest123',    // Required if using Pendo
+      email: 'Nolan@test.com'
+    },
+    account: {
+      id: 'Acme'            // Optional but recommended
+    }
+  });
+</script>
 
 </body>
 </html>
