@@ -1,6 +1,26 @@
 <!doctype html>
 <html>
 <head>
+  <script>
+  (function(apiKey){
+    (function(p,e,n,d,o){
+      var v,w,x,y,z;
+      o=p[d]=p[d]||{};
+      o._q=[];
+      v=['initialize','identify','updateOptions','pageLoad','track'];
+      for(w=0,x=v.length;w<x;++w)(function(m){o[m]=o[m]||function(){
+        o._q[m==="initialize"? "unshift":"push"]([m].concat([].slice.call(arguments,0)));
+      };})(v[w]);
+      y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+      z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);
+    })(window,document,'script','pendo');
+  })('1cc88766-c269-4c89-894d-becc8edda723');
+
+  pendo.initialize({
+    visitor: { id: 'VISITOR-123' },
+    account: { id: 'ACCOUNT-456' }
+  });
+</script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
