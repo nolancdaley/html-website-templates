@@ -1,56 +1,68 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
-	<!-- Page Title -->
-	<title>New Template — Slides 4.1 Template Generator</title>
+  <title>New Template — Slides 4.1 Template Generator</title>
 
-	<!-- Compressed Styles -->
-	<link href="css/slides.min.css?41331" rel="stylesheet" type="text/css">
+  <!-- Slides 4.1 Styles -->
+  <link href="css/slides.min.css?41331" rel="stylesheet" type="text/css">
 
-	<!-- jQuery 3.3.1 -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/slides.min.js?41331" type="text/javascript"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<!-- Fonts -->
-	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
+  <!-- Slides 4.1 Scripts -->
+  <script src="js/slides.min.js?41331" type="text/javascript"></script>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
 </head>
 <body class="slides chain simplifiedMobile animated">
 
-<script>
-  (function(p,e,n,d,o){
-    var v,w,x,y,z;
-    o=p[d]=p[d]||{};
-    o._q=[];
-    v=['initialize','identify','updateOptions','pageLoad','track'];
-    for(w=0;w<v.length;w++){
-      (function(m){o[m]=o[m]||function(){o._q.push([m].concat([].slice.call(arguments,0)))}})(v[w])
-    }
-    x=e.createElement(n);
-    x.async=!0;
-    x.src='https://cdn.pendo.io/agent/static/1cc88766-c269-4c89-894d-becc8edda723/pendo.js';
-    y=e.getElementsByTagName(n)[0];
-    y.parentNode.insertBefore(x,y);
+  <!-- Your page content goes here -->
 
-    // Initialize Pendo after the script loads
-    x.onload = function() {
-      pendo.initialize({
-        visitor: {
-          id:        '12345',
-          email:     'nolan.daley@example.com',
-          full_name: 'Nolan Daley',
-        },
-        account: {
-          id:   '67890',
-          name: 'Example Corp'
-        }
-      });
-    };
-  })(window,document,'script','pendo');
-</script>
+  <!-- Pendo Install Script (Asynchronous) -->
+  <script>
+    (function(p,e,n,d){
+      // Set up the Pendo queue
+      p[d] = p[d] || {};
+      p[d]._q = [];
+      var methods = ['initialize','identify','updateOptions','pageLoad','track'];
+      for(var i=0;i<methods.length;i++){
+        (function(m){
+          p[d][m] = p[d][m] || function(){
+            p[d]._q.push([m].concat([].slice.call(arguments,0)));
+          };
+        })(methods[i]);
+      }
+
+      // Create the Pendo script tag
+      var s = e.createElement(n);
+      s.async = true;
+      s.src = 'https://cdn.pendo.io/agent/static/1cc88766-c269-4c89-894d-becc8edda723/pendo.js';
+      var firstScript = e.getElementsByTagName(n)[0];
+      firstScript.parentNode.insertBefore(s, firstScript);
+
+      // Initialize Pendo after the script loads
+      s.onload = function(){
+        console.log('Pendo script loaded!');
+        pendo.initialize({
+          visitor: {
+            id: '12345',
+            email: 'nolan.daley@example.com',
+            full_name: 'Nolan Daley'
+          },
+          account: {
+            id: '67890',
+            name: 'Example Corp'
+          }
+        });
+        console.log('Pendo initialized', pendo);
+      };
+    })(window, document, 'script', 'pendo');
+  </script>
 
 </body>
 </html>
