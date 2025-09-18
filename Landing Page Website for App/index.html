@@ -26,6 +26,20 @@
 	<!-- Fonts and Material Icons -->
 	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
  
+ <script>
+  (function(apiKey){
+    window.pendo = window.pendo || {};
+    window.pendo._q = [];
+    window.pendo.setup = function(config){
+      window.pendo._q.push(['setup', config]);
+    };
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+    var firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(script, firstScript);
+  })('1cc88766-c269-4c89-894d-becc8edda723');
+</script>
 </head>
 <body class="slides chain simplifiedMobile animated">
 		
